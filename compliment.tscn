@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://36cn4e1cehww"]
 
-[ext_resource type="Script" path="res://please_button.cs" id="1_2eapt"]
+[ext_resource type="Script" path="res://GameLoop.cs" id="1_h7rg3"]
 
 [node name="Game2D" type="Node2D"]
-script = ExtResource("1_2eapt")
+script = ExtResource("1_h7rg3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -51,4 +51,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Please"
 
-[connection signal="button_down" from="Control/Margin/CanvasLayer/Please" to="Control/Margin/CanvasLayer/Please" method="_on_button_down"]
+[connection signal="button_down" from="Control/Margin/CanvasLayer/Please" to="." method="_on_please_button_down"]
