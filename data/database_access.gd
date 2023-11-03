@@ -4,7 +4,7 @@ var db : SQLite = SQLite.new()
 
 const verbosity_level : int = SQLite.VERBOSE
 
-var db_name := "res://data/database.db"
+var db_name := "res://data/content/compliments_database.db"
 
 func _ready():
 	db.path = db_name
