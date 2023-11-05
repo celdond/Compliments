@@ -6,18 +6,21 @@ public partial class GameLoop : Node2D
 {
 	Label compliment;
 	GodotObject database;
-	Variant compliments;
+	string[] compliments;
+	Random random;
 	public override void _Ready()
 	{
+		random = new Random();
 		GDScript DatabaseScript = (GDScript)GD.Load("res://data/database_access.gd");
 		database = (GodotObject)DatabaseScript.New();
-		compliments = (Variant)database.Call("get_compliments");
+		compliments = database.Call("get_compliments").AsStringArray();
 		compliment = (Label)GetNode("./Control/Margin/CanvasLayer/Compliment");
 		compliment.Text = "Press the button to receive a compliment.";
 	}
 	
 	private void _on_please_button_down()
 	{
+		int selection = random.Next(0, 1);
 		compliment.Text = "Random!";
 	}
 }
