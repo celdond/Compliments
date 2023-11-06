@@ -13,6 +13,7 @@ public partial class GameLoop : Node2D
 		random = new Random();
 		GDScript DatabaseScript = (GDScript)GD.Load("res://data/database_access.gd");
 		database = (GodotObject)DatabaseScript.New();
+		database.Call("get_compliment_count");
 		compliments = database.Call("get_compliments").AsStringArray();
 		compliment = (Label)GetNode("./Control/Margin/CanvasLayer/Compliment");
 		compliment.Text = "Press the button to receive a compliment.";

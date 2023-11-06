@@ -6,10 +6,25 @@ const verbosity_level : int = SQLite.VERBOSE
 
 var db_name := "res://data/content/compliments_database"
 
-func get_compliments() -> Array:
+func set_values()->void:
 	db.path = db_name
 	db.verbosity_level = verbosity_level
+
+func get_compliment_count()->int:
 	db.open_db()
-	var selected: Array = db.select_rows("standard", "", ["*"])
+	var count = db.select_rows("standard", "", ["COUNT(*)"])[0]["COUNT(*)"]
+	db.close_db()
+	return count
+
+func get_compliment(selection: int) -> String:
+	var condition: String = "id = " + str(selection)
+	db.open_db()
+	var compliment = db.select_rows("standard", condition, ["compliment"])[0]["compliment"]
+	db.close_db()
+	return compliment
+
+func get_compliments() -> Array:
+	db.open_db()
+	var selected: Array = db.select_rows("standard", "", ["compliment"])
 	db.close_db()
 	return selected
