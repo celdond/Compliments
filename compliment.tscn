@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://36cn4e1cehww"]
+[gd_scene load_steps=3 format=3 uid="uid://36cn4e1cehww"]
 
 [ext_resource type="Script" path="res://GameLoop.cs" id="1_h7rg3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
+font_color = Color(0.976471, 0.960784, 0.921569, 1)
 
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_h7rg3")
@@ -25,6 +28,14 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control/Margin"]
 
+[node name="ColorRect" type="ColorRect" parent="Control/Margin/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.168627, 0.356863, 1)
+
 [node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -34,6 +45,7 @@ offset_top = 35.0
 offset_right = 437.0
 offset_bottom = 293.0
 grow_horizontal = 2
+label_settings = SubResource("LabelSettings_mi2nj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
