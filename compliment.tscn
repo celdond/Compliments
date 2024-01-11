@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://36cn4e1cehww"]
-
-[ext_resource type="Script" path="res://GameLoop.cs" id="1_h7rg3"]
+[gd_scene load_steps=2 format=3 uid="uid://bkhsehmct2sc6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
 font_color = Color(0.976471, 0.960784, 0.921569, 1)
 
 [node name="Game2D" type="Node2D"]
-script = ExtResource("1_h7rg3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -36,15 +33,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.168627, 0.356863, 1)
 
-[node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer"]
-anchors_preset = 5
+[node name="ColorRect" type="ColorRect" parent="Control/Margin/CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -435.0
-offset_top = 35.0
-offset_right = 437.0
-offset_bottom = 293.0
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = -257.0
+offset_right = 474.0
+offset_bottom = 20.0
 grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.384314, 0.752941, 1)
+
+[node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 label_settings = SubResource("LabelSettings_mi2nj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -62,5 +72,3 @@ offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Please"
-
-[connection signal="button_down" from="Control/Margin/CanvasLayer/Please" to="." method="_on_please_button_down"]

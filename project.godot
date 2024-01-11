@@ -10,18 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Compliments"
-run/main_scene="res://compliment.tscn"
-config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
-config/icon="res://icon.png"
-
-[dotnet]
-
-project/assembly_name="Compliments"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+config/name="Compliments Temp"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
 
 [rendering]
 
