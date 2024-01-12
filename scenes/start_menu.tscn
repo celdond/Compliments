@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bcouscsttwf54"]
+
+[node name="Game2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Margin" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control/Margin"]
+
+[node name="ColorRect" type="ColorRect" parent="Control/Margin/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.168627, 0.356863, 1)
+
+[node name="Please" type="Button" parent="Control/Margin/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -50.5
+offset_right = 94.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Please"
