@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bcouscsttwf54"]
+[gd_scene load_steps=2 format=3 uid="uid://bcouscsttwf54"]
+
+[ext_resource type="Script" path="res://scripts/Start.gd" id="1_rxmok"]
 
 [node name="Game2D" type="Node2D"]
 
@@ -43,3 +45,6 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Please"
+script = ExtResource("1_rxmok")
+
+[connection signal="pressed" from="Control/Margin/CanvasLayer/Please" to="Control/Margin/CanvasLayer/Please" method="_on_pressed"]
