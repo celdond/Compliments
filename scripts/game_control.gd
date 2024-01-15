@@ -11,8 +11,8 @@ func _ready():
 	database = database_script.new()
 	count = database.get_compliment_count()
 	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Margin/Compliment")	
-	compliment.Text = "Press the button to receive a compliment."
+	compliment.text = "Press the button to receive a compliment."
 	
 func _on_please():
-	var selection: int = random.randi_range(0, count)
-	compliment.Text = database.get_compliment(selection)
+	var selection: int = random.randi_range(1, count)
+	compliment.text = database.get_compliment(selection)
