@@ -78,3 +78,5 @@ layout_direction = 1
 layout_mode = 1
 offset_top = -251.0
 offset_bottom = -29.0
+
+[connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
