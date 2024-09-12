@@ -128,3 +128,4 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
+[connection signal="pressed" from="Control/CanvasLayer/ExitButton" to="." method="on_exit"]

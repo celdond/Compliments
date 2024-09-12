@@ -16,3 +16,7 @@ func _ready():
 func _on_please():
 	var selection: int = random.randi_range(1, count)
 	compliment.text = database.get_compliment(selection)
+
+
+func on_exit() -> void:
+	get_tree().quit()
