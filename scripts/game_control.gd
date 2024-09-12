@@ -20,3 +20,8 @@ func _on_please():
 
 func on_exit() -> void:
 	get_tree().quit()
+
+
+func nav_configuration() -> void:
+	var config_scene: String = "res://scenes/configuration.tscn"
+	get_tree().change_scene_to_file(config_scene)

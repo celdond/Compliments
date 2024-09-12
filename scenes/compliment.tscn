@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=9 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -9,6 +9,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
 font_color = Color(0.976471, 0.960784, 0.921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y0t3"]
+bg_color = Color(0.917647, 0.329412, 0.333333, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_detail = 10
+anti_aliasing = false
 
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_7drca")
@@ -93,13 +100,12 @@ offset_bottom = 0.159973
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
-[node name="ColorRect" type="ColorRect" parent="Control/CanvasLayer"]
-offset_left = -69.0
+[node name="Panel" type="Panel" parent="Control/CanvasLayer"]
+offset_left = -26.0
 offset_top = 21.0
 offset_right = 219.0
 offset_bottom = 76.0
-size_flags_horizontal = 0
-color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7y0t3")
 
 [node name="ConfigurationButton" type="TextureButton" parent="Control/CanvasLayer"]
 offset_left = 108.0
@@ -128,4 +134,5 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
+[connection signal="pressed" from="Control/CanvasLayer/ConfigurationButton" to="." method="nav_configuration"]
 [connection signal="pressed" from="Control/CanvasLayer/ExitButton" to="." method="on_exit"]
