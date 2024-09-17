@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=11 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -6,15 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dqj8i6k6gxeen" path="res://data/content/assets/options_button/optionsClick.png" id="4_xg8cq"]
 [ext_resource type="Texture2D" uid="uid://bptgrxssa0q0d" path="res://data/content/assets/exit_button/exit.png" id="4_xq8vd"]
 [ext_resource type="Texture2D" uid="uid://cyyhkq32nj51n" path="res://data/content/assets/exit_button/exitClick.png" id="6_nintp"]
+[ext_resource type="Texture2D" uid="uid://nnd8piow51pw" path="res://data/content/assets/slide/slide.png" id="6_tosfv"]
+[ext_resource type="BitMap" uid="uid://bnpjwqxq1iyn2" path="res://data/content/assets/slide/slideMask.png" id="7_spt30"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
+line_spacing = 5.0
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y0t3"]
 bg_color = Color(0.917647, 0.329412, 0.333333, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_detail = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
-font_color = Color(0.976471, 0.960784, 0.921569, 1)
 
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_7drca")
@@ -39,7 +43,60 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control/Margin"]
 
+[node name="Background" type="ColorRect" parent="Control/Margin/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.168627, 0.356863, 1)
+
+[node name="Textbox" type="ColorRect" parent="Control/Margin/CanvasLayer/Background"]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = -214.0
+offset_right = 474.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.976471, 0.960784, 0.921569, 1)
+
+[node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/Background/Textbox"]
+z_index = 6
+custom_minimum_size = Vector2(918, 253)
+layout_mode = 2
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 933.0
+offset_bottom = 265.0
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_mi2nj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton" parent="Control/Margin/CanvasLayer/Background" instance=ExtResource("2_spen2")]
+texture_filter = 1
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.613
+anchor_right = 0.596
+anchor_bottom = 0.955
+offset_left = -0.40802
+offset_top = -0.22403
+offset_right = 0.407959
+offset_bottom = 0.159973
+
 [node name="Slide" type="Control" parent="Control/Margin/CanvasLayer"]
+z_index = 6
 layout_mode = 3
 anchors_preset = 0
 offset_left = -27.0
@@ -47,7 +104,8 @@ offset_right = 227.0
 offset_bottom = 95.0
 
 [node name="Panel" type="Panel" parent="Control/Margin/CanvasLayer/Slide"]
-z_index = 7
+z_index = 6
+layout_mode = 0
 offset_left = 1.0
 offset_top = 21.0
 offset_right = 246.0
@@ -56,6 +114,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7y0t3")
 
 [node name="ConfigurationButton" type="TextureButton" parent="Control/Margin/CanvasLayer/Slide"]
 z_index = 7
+layout_mode = 0
 offset_left = 135.0
 offset_top = 17.0
 offset_right = 198.0
@@ -76,6 +135,20 @@ offset_bottom = 80.0
 size_flags_horizontal = 0
 texture_normal = ExtResource("4_xq8vd")
 texture_pressed = ExtResource("6_nintp")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="Control/Margin/CanvasLayer/Slide"]
+z_index = 8
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 0
+offset_left = 198.0
+offset_top = 18.0
+offset_right = 261.0
+offset_bottom = 81.0
+texture_normal = ExtResource("6_tosfv")
+texture_click_mask = ExtResource("7_spt30")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -120,64 +193,7 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="Background" type="ColorRect" parent="Control/Margin/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.168627, 0.356863, 1)
-
-[node name="Textbox" type="ColorRect" parent="Control/Margin/CanvasLayer/Background"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -474.0
-offset_top = -214.0
-offset_right = 474.0
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.976471, 0.960784, 0.921569, 1)
-
-[node name="Margin" type="MarginContainer" parent="Control/Margin/CanvasLayer/Background/Textbox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 12.0
-offset_right = -15.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/Background/Textbox/Margin"]
-custom_minimum_size = Vector2(918, 253)
-layout_mode = 2
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_mi2nj")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="TextureButton" parent="Control/Margin/CanvasLayer/Background" instance=ExtResource("2_spen2")]
-texture_filter = 1
-layout_direction = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.613
-anchor_right = 0.596
-anchor_bottom = 0.955
-offset_left = -0.40802
-offset_top = -0.22403
-offset_right = 0.407959
-offset_bottom = 0.159973
-
+[connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ConfigurationButton" to="." method="nav_configuration"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ExitButton" to="." method="on_exit"]
-[connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/TextureButton" to="." method="on_slide_pressed"]

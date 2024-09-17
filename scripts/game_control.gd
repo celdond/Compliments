@@ -10,7 +10,7 @@ func _ready():
 	random = RandomNumberGenerator.new()
 	database = database_script.new()
 	count = database.get_compliment_count()
-	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Margin/Compliment")	
+	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Compliment")	
 	compliment.text = "Press the button to receive a compliment."
 	
 func _on_please():
@@ -25,3 +25,7 @@ func on_exit() -> void:
 func nav_configuration() -> void:
 	var config_scene: String = "res://scenes/configuration.tscn"
 	get_tree().change_scene_to_file(config_scene)
+
+
+func on_slide_pressed() -> void:
+	print("ye")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bnpjwqxq1iyn2"
+path="res://.godot/imported/slideMask.png-a4462a861c06f9a7297f2ebdebe7d7d4.res"
+
+[deps]
+
+source_file="res://data/content/assets/slide/slideMask.png"
+dest_files=["res://.godot/imported/slideMask.png-a4462a861c06f9a7297f2ebdebe7d7d4.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
