@@ -1,5 +1,6 @@
 extends Node2D
 var compliment: Label
+var slide: Control
 var database: Object
 var count: int
 var random: RandomNumberGenerator
@@ -10,7 +11,8 @@ func _ready():
 	random = RandomNumberGenerator.new()
 	database = database_script.new()
 	count = database.get_compliment_count()
-	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Compliment")	
+	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Compliment")
+	slide = get_node("./Control/Margin/CanvasLayer/Slide")
 	compliment.text = "Press the button to receive a compliment."
 	
 func _on_please():
@@ -28,4 +30,4 @@ func nav_configuration() -> void:
 
 
 func on_slide_pressed() -> void:
-	print("ye")
+	pass
