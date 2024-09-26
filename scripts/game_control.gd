@@ -30,4 +30,5 @@ func nav_configuration() -> void:
 
 
 func on_slide_pressed() -> void:
-	pass
+	var currentPosition: Vector2 = slide.get_global_position()
+	
