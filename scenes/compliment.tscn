@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=15 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cyyhkq32nj51n" path="res://data/content/assets/exit_button/exitClick.png" id="6_nintp"]
 [ext_resource type="Texture2D" uid="uid://nnd8piow51pw" path="res://data/content/assets/slide/slide.png" id="6_tosfv"]
 [ext_resource type="BitMap" uid="uid://bnpjwqxq1iyn2" path="res://data/content/assets/slide/slideMask.png" id="7_spt30"]
+[ext_resource type="Texture2D" uid="uid://qmhkjkbxngwn" path="res://data/content/assets/popup/popup.png" id="9_s0o5f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
 line_spacing = 5.0
@@ -133,7 +134,7 @@ offset_right = 0.407959
 offset_bottom = 0.159973
 
 [node name="Slide" type="Control" parent="Control/Margin/CanvasLayer"]
-z_index = 6
+z_index = 4
 layout_mode = 3
 anchors_preset = 0
 offset_left = -205.0
@@ -182,7 +183,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="SlideButton" type="TextureButton" parent="Control/Margin/CanvasLayer/Slide"]
-z_index = 8
+z_index = 6
 texture_filter = 2
 texture_repeat = 1
 layout_mode = 0
@@ -198,7 +199,7 @@ flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="Control/Margin/CanvasLayer"]
 visible = false
-z_index = 9
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -207,17 +208,22 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.662745)
 
 [node name="TextureRect" type="TextureRect" parent="Control/Margin/CanvasLayer"]
+visible = false
+z_index = 10
 anchors_preset = -1
-anchor_left = 0.413
-anchor_top = 0.404
-anchor_right = 0.586
-anchor_bottom = 0.607
-offset_left = 100.224
-offset_top = 62.208
-offset_right = -99.072
-offset_bottom = -69.336
+anchor_left = 0.299
+anchor_top = 0.233
+anchor_right = 0.701
+anchor_bottom = 0.767
+offset_left = 0.551971
+offset_top = 0.0159912
+offset_right = -0.552063
+offset_bottom = -0.0160217
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("9_s0o5f")
+expand_mode = 1
+stretch_mode = 4
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ConfigurationButton" to="." method="nav_configuration"]
