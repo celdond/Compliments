@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=19 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -68,6 +68,12 @@ outline_color = Color(0.976471, 0.960784, 0.921569, 1)
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="Theme" id="Theme_o3er6"]
+default_font = ExtResource("10_vucb8")
+
+[sub_resource type="Theme" id="Theme_pdpow"]
+default_font = ExtResource("10_vucb8")
+
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_7drca")
 
@@ -116,7 +122,7 @@ grow_vertical = 2
 color = Color(0.976471, 0.960784, 0.921569, 1)
 
 [node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/Background/Textbox"]
-z_index = 6
+z_index = 5
 custom_minimum_size = Vector2(918, 253)
 layout_mode = 2
 offset_left = 15.0
@@ -167,7 +173,7 @@ offset_bottom = 76.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7y0t3")
 
 [node name="ConfigurationButton" type="TextureButton" parent="Control/Margin/CanvasLayer/Slide"]
-z_index = 7
+z_index = 6
 layout_mode = 0
 offset_left = 135.0
 offset_top = 17.0
@@ -179,7 +185,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="ExitButton" type="TextureButton" parent="Control/Margin/CanvasLayer/Slide"]
-z_index = 7
+z_index = 6
 layout_mode = 1
 anchors_preset = -1
 offset_left = 49.0
@@ -207,7 +213,7 @@ ignore_texture_size = true
 stretch_mode = 4
 flip_h = true
 
-[node name="ColorRect" type="ColorRect" parent="Control/Margin/CanvasLayer"]
+[node name="FadeLayer" type="ColorRect" parent="Control/Margin/CanvasLayer"]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -217,7 +223,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.662745)
 
-[node name="TextureRect" type="TextureRect" parent="Control/Margin/CanvasLayer"]
+[node name="ExitPopup" type="TextureRect" parent="Control/Margin/CanvasLayer"]
+visible = false
 z_index = 10
 anchors_preset = -1
 anchor_left = 0.299
@@ -234,7 +241,7 @@ texture = ExtResource("9_s0o5f")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="Control/Margin/CanvasLayer/TextureRect"]
+[node name="Label" type="Label" parent="Control/Margin/CanvasLayer/ExitPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -248,22 +255,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button2" type="Button" parent="Control/Margin/CanvasLayer/TextureRect"]
+[node name="Button2" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 245.0
 offset_right = 180.0
 offset_bottom = 300.0
+theme = SubResource("Theme_o3er6")
 text = "EXIT"
 
-[node name="Button3" type="Button" parent="Control/Margin/CanvasLayer/TextureRect"]
+[node name="Button3" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
 offset_left = 281.0
 offset_top = 245.0
 offset_right = 410.0
 offset_bottom = 300.0
+theme = SubResource("Theme_pdpow")
 text = "CANCEL"
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ConfigurationButton" to="." method="nav_configuration"]
-[connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ExitButton" to="." method="on_exit"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ExitButton" to="." method="on_ask_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/SlideButton" to="." method="on_slide_pressed"]

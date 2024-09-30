@@ -6,6 +6,8 @@ var slideState: bool
 var database: Object
 var count: int
 var random: RandomNumberGenerator
+var popup: TextureRect
+var fade: ColorRect
 const database_script = preload("res://data/database_access.gd")
 
 # Called when the node enters the scene tree for the first time.
@@ -17,16 +19,20 @@ func _ready():
 	slide = get_node("./Control/Margin/CanvasLayer/Slide/AnimationPlayer")
 	slideButton = get_node("./Control/Margin/CanvasLayer/Slide/SlideButton")
 	slideState = false
+	popup = get_node("./Control/Margin/CanvasLayer/ExitPopup")
+	fade = get_node("./Control/Margin/CanvasLayer/FadeLayer")
 	compliment.text = "Press the button to receive a compliment."
 	
 func _on_please():
 	var selection: int = random.randi_range(1, count)
 	compliment.text = database.get_compliment(selection)
 
+func on_ask_exit() -> void:
+	fade.visible = true
+	popup.visible = true
 
 func on_exit() -> void:
 	get_tree().quit()
-
 
 func nav_configuration() -> void:
 	var config_scene: String = "res://scenes/configuration.tscn"
