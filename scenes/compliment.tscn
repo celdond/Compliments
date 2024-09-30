@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=18 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -10,6 +10,7 @@
 [ext_resource type="BitMap" uid="uid://bnpjwqxq1iyn2" path="res://data/content/assets/slide/slideMask.png" id="7_spt30"]
 [ext_resource type="Texture2D" uid="uid://qmhkjkbxngwn" path="res://data/content/assets/popup/popup.png" id="9_s0o5f"]
 [ext_resource type="FontFile" uid="uid://cq8bksf3ifte2" path="res://data/content/assets/fonts/Roboto-Regular.ttf" id="10_vucb8"]
+[ext_resource type="Theme" uid="uid://bnogjgji83w3b" path="res://data/themes/button.tres" id="11_fsqcu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
 line_spacing = 5.0
@@ -67,12 +68,6 @@ outline_size = 2
 outline_color = Color(0.976471, 0.960784, 0.921569, 1)
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="Theme" id="Theme_o3er6"]
-default_font = ExtResource("10_vucb8")
-
-[sub_resource type="Theme" id="Theme_pdpow"]
-default_font = ExtResource("10_vucb8")
 
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_7drca")
@@ -261,15 +256,17 @@ offset_left = 51.0
 offset_top = 245.0
 offset_right = 180.0
 offset_bottom = 300.0
-theme = SubResource("Theme_o3er6")
+theme = ExtResource("11_fsqcu")
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_fonts/font = ExtResource("10_vucb8")
 text = "EXIT"
 
 [node name="cancel" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
-offset_left = 281.0
+offset_left = 282.0
 offset_top = 245.0
-offset_right = 410.0
+offset_right = 411.0
 offset_bottom = 300.0
-theme = SubResource("Theme_pdpow")
+theme = ExtResource("11_fsqcu")
 text = "CANCEL"
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Background/TextureButton" to="." method="_on_please"]
