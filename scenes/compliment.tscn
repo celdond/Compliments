@@ -255,7 +255,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button2" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
+[node name="confirm" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 245.0
@@ -264,7 +264,7 @@ offset_bottom = 300.0
 theme = SubResource("Theme_o3er6")
 text = "EXIT"
 
-[node name="Button3" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
+[node name="cancel" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
 offset_left = 281.0
 offset_top = 245.0
 offset_right = 410.0
@@ -276,3 +276,5 @@ text = "CANCEL"
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ConfigurationButton" to="." method="nav_configuration"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/ExitButton" to="." method="on_ask_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/SlideButton" to="." method="on_slide_pressed"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/confirm" to="." method="on_exit"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]

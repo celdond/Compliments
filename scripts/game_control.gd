@@ -31,6 +31,10 @@ func on_ask_exit() -> void:
 	fade.visible = true
 	popup.visible = true
 
+func cancel_exit() -> void:
+	popup.visible = false
+	fade.visible = false
+
 func on_exit() -> void:
 	get_tree().quit()
 
