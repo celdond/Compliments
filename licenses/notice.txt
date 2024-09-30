@@ -1,0 +1,12 @@
+# This product includes software developed under the Apache 2.0 and MIT Licenses.
+#----------------------------------------------------------------------------
+#This file aims at documenting the copyright and corresponding licenses of the 
+#projects and software used in the creation of this project.
+#----------------------------------------------------------------------------
+
+Godot Engine
+License: MIT, https://godotengine.org/license/
+
+Roboto
+Copyright: Christian Robertson
+License: Apache 2.0
