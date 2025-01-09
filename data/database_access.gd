@@ -19,6 +19,6 @@ func get_compliment(selection: int) -> String:
 	db.verbosity_level = verbosity_level
 	var condition: String = "id = " + str(selection)
 	db.open_db()
-	var compliment = db.select_rows("standard", condition, ["compliment"])[0]["compliment"]
+	var compliment: String = db.select_rows("standard", condition, ["compliment"])[0]["compliment"]
 	db.close_db()
 	return compliment

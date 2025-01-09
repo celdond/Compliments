@@ -22,10 +22,13 @@ func _ready():
 	popup = get_node("./Control/Margin/CanvasLayer/ExitPopup")
 	fade = get_node("./Control/Margin/CanvasLayer/FadeLayer")
 	compliment.text = "Press the button to receive a compliment."
+	print(compliment.text)
 	
 func _on_please():
 	var selection: int = random.randi_range(1, count)
-	compliment.text = database.get_compliment(selection)
+	var c: String = database.get_compliment(selection)
+	print(c)
+	compliment.text = c
 
 func on_ask_exit() -> void:
 	fade.visible = true
