@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=20 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -13,10 +13,18 @@
 [ext_resource type="Theme" uid="uid://bnogjgji83w3b" path="res://data/themes/button.tres" id="11_fsqcu"]
 [ext_resource type="StyleBox" uid="uid://dgp7jqmasldg" path="res://data/themes/buttonHover.tres" id="12_hmeup"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riepv"]
+bg_color = Color(0.976471, 0.960784, 0.921569, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_mi2nj"]
 line_spacing = 5.0
 font_size = 24
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0, 0.168627, 0.356863, 1)
 
 [sub_resource type="Animation" id="Animation_nbnc4"]
 length = 0.001
@@ -101,21 +109,27 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.168627, 0.356863, 1)
 
-[node name="Textbox" type="ColorRect" parent="Control/Margin/CanvasLayer/Background"]
-z_index = 5
+[node name="TextureButton" parent="Control/Margin/CanvasLayer/Background" instance=ExtResource("2_spen2")]
+texture_filter = 1
+layout_direction = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -474.0
-offset_top = -214.0
-offset_right = 474.0
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.976471, 0.960784, 0.921569, 1)
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.613
+anchor_right = 0.596
+anchor_bottom = 0.955
+offset_left = -0.40802
+offset_top = -0.22403
+offset_right = 0.407959
+offset_bottom = 0.159973
+
+[node name="Textbox" type="Panel" parent="Control/Margin/CanvasLayer/Background"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 110.0
+offset_right = 1050.0
+offset_bottom = 387.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_riepv")
 
 [node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/Background/Textbox"]
 z_index = 5
@@ -130,20 +144,6 @@ label_settings = SubResource("LabelSettings_mi2nj")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="TextureButton" parent="Control/Margin/CanvasLayer/Background" instance=ExtResource("2_spen2")]
-texture_filter = 1
-layout_direction = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.613
-anchor_right = 0.596
-anchor_bottom = 0.955
-offset_left = -0.40802
-offset_top = -0.22403
-offset_right = 0.407959
-offset_bottom = 0.159973
 
 [node name="Slide" type="Control" parent="Control/Margin/CanvasLayer"]
 z_index = 4
