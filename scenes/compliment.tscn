@@ -110,7 +110,7 @@ grow_vertical = 2
 color = Color(0, 0.168627, 0.356863, 1)
 
 [node name="TextureButton" parent="Control/Margin/CanvasLayer/Background" instance=ExtResource("2_spen2")]
-texture_filter = 1
+texture_filter = 2
 layout_direction = 1
 layout_mode = 1
 anchors_preset = -1

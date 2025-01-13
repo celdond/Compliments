@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf3al74whb4yj"]
 
-[ext_resource type="Texture2D" uid="uid://d02ijrjfn1abg" path="res://data/content/assets/button/normal.png" id="1_pbo5r"]
-[ext_resource type="Texture2D" uid="uid://dhqeoflmjyqiq" path="res://data/content/assets/button/pressed.png" id="2_lkl5l"]
+[ext_resource type="Texture2D" uid="uid://csow68cn6clyq" path="res://data/content/assets/button/pleaseButton.png" id="1_ytmpx"]
+[ext_resource type="Texture2D" uid="uid://cbm6u6udxdk8l" path="res://data/content/assets/button/pleaseButtonPressed.png" id="2_vfkjy"]
 
 [node name="TextureButton" type="TextureButton"]
 anchors_preset = 7
@@ -15,7 +15,7 @@ offset_right = 111.0
 offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("1_pbo5r")
-texture_pressed = ExtResource("2_lkl5l")
+texture_normal = ExtResource("1_ytmpx")
+texture_pressed = ExtResource("2_vfkjy")
 ignore_texture_size = true
 stretch_mode = 0
