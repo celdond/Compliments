@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf3al74whb4yj"]
+[gd_scene load_steps=5 format=3 uid="uid://cf3al74whb4yj"]
 
 [ext_resource type="Texture2D" uid="uid://csow68cn6clyq" path="res://data/content/assets/button/pleaseButton.png" id="1_ytmpx"]
 [ext_resource type="Texture2D" uid="uid://cbm6u6udxdk8l" path="res://data/content/assets/button/pleaseButtonPressed.png" id="2_vfkjy"]
+[ext_resource type="Script" path="res://scripts/buttonSoundmanager.gd" id="3_a0ins"]
+[ext_resource type="AudioStream" uid="uid://bbpdxexq1paaf" path="res://data/sounds/onClick.wav" id="3_qxxsf"]
 
 [node name="TextureButton" type="TextureButton"]
 anchors_preset = 7
@@ -19,3 +21,9 @@ texture_normal = ExtResource("1_ytmpx")
 texture_pressed = ExtResource("2_vfkjy")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("3_a0ins")
+
+[node name="ClickDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qxxsf")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
