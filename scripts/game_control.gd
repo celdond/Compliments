@@ -29,10 +29,12 @@ func _on_please():
 	compliment.text = c
 
 func on_ask_exit() -> void:
+	$UIButtons.play()
 	fade.visible = true
 	popup.visible = true
 
 func cancel_exit() -> void:
+	$UIButtons.play()
 	popup.visible = false
 	fade.visible = false
 
@@ -40,6 +42,8 @@ func on_exit() -> void:
 	get_tree().quit()
 
 func nav_configuration() -> void:
+	$UIButtons.play()
+	await get_tree().create_timer(0.1).timeout
 	var config_scene: String = "res://scenes/configuration.tscn"
 	get_tree().change_scene_to_file(config_scene)
 
