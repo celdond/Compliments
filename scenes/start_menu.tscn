@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcouscsttwf54"]
+[gd_scene load_steps=4 format=3 uid="uid://bcouscsttwf54"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_rxmok"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="1_t7o7a"]
+[ext_resource type="AudioStream" uid="uid://bbpdxexq1paaf" path="res://data/sounds/onClick.wav" id="3_x4yan"]
 
 [node name="Game2D" type="Node2D"]
 
@@ -42,5 +43,8 @@ offset_top = -111.0
 offset_bottom = 111.0
 grow_vertical = 2
 script = ExtResource("1_rxmok")
+
+[node name="ClickDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x4yan")
 
 [connection signal="pressed" from="Control/Margin/CanvasLayer/TextureButton" to="Control/Margin/CanvasLayer/TextureButton" method="_on_pressed"]
