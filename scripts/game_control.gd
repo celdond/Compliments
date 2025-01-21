@@ -7,6 +7,7 @@ var database: Object
 var count: int
 var random: RandomNumberGenerator
 var popup: TextureRect
+var config: TextureRect
 var fade: ColorRect
 const database_script = preload("res://data/database_access.gd")
 
@@ -20,6 +21,7 @@ func _ready():
 	slideButton = get_node("./Control/Margin/CanvasLayer/Slide/SlideButton")
 	slideState = false
 	popup = get_node("./Control/Margin/CanvasLayer/ExitPopup")
+	config = get_node("./Control/Margin/CanvasLayer/ConfigPopup")
 	fade = get_node("./Control/Margin/CanvasLayer/FadeLayer")
 	compliment.text = "Press the button to receive a compliment."
 	
@@ -43,10 +45,8 @@ func on_exit() -> void:
 
 func nav_configuration() -> void:
 	$UIButtons.play()
-	await get_tree().create_timer(0.1).timeout
-	var config_scene: String = "res://scenes/configuration.tscn"
-	get_tree().change_scene_to_file(config_scene)
-
+	fade.visible = true
+	config.visible = true
 
 func on_slide_pressed() -> void:
 	if slideState == false:
@@ -57,3 +57,9 @@ func on_slide_pressed() -> void:
 		slide.play_backwards("slide")
 		slideButton.flip_h = true
 		slideState = false
+
+
+func cancel_config() -> void:
+	$UIButtons.play()
+	config.visible = false
+	fade.visible = false
