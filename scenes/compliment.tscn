@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=22 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://bnogjgji83w3b" path="res://data/themes/button.tres" id="11_fsqcu"]
 [ext_resource type="StyleBox" uid="uid://dgp7jqmasldg" path="res://data/themes/buttonHover.tres" id="12_hmeup"]
 [ext_resource type="AudioStream" uid="uid://bgekfcrrwp10g" path="res://data/sounds/buttonClick.wav" id="13_ph8mg"]
+[ext_resource type="AudioStream" uid="uid://bbpdxexq1paaf" path="res://data/sounds/onClick.wav" id="13_slgsy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riepv"]
 bg_color = Color(0.976471, 0.960784, 0.921569, 1)
@@ -284,7 +285,6 @@ theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "CANCEL"
 
 [node name="ConfigPopup" type="TextureRect" parent="Control/Margin/CanvasLayer"]
-visible = false
 z_index = 10
 anchors_preset = -1
 anchor_left = 0.299
@@ -316,6 +316,24 @@ theme_override_styles/hover = ExtResource("12_hmeup")
 theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "CANCEL"
 
+[node name="volumeSlider" type="HSlider" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.329
+anchor_right = 0.998
+anchor_bottom = 0.376
+offset_left = 51.0
+offset_top = 0.165993
+offset_right = -50.076
+offset_bottom = -0.0960083
+min_value = -80.0
+max_value = 0.0
+
+[node name="TestSound" type="AudioStreamPlayer" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+stream = ExtResource("13_slgsy")
+bus = &"TestBus"
+playback_type = 1
+
 [node name="UIButtons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ph8mg")
 
@@ -326,3 +344,4 @@ stream = ExtResource("13_ph8mg")
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/confirm" to="." method="on_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/cancel" to="." method="cancel_config"]
+[connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/volumeSlider" to="." method="_volume_changed"]

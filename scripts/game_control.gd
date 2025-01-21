@@ -11,6 +11,9 @@ var config: TextureRect
 var fade: ColorRect
 const database_script = preload("res://data/database_access.gd")
 
+# Settings
+var volume: float
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	random = RandomNumberGenerator.new()
@@ -24,6 +27,9 @@ func _ready():
 	config = get_node("./Control/Margin/CanvasLayer/ConfigPopup")
 	fade = get_node("./Control/Margin/CanvasLayer/FadeLayer")
 	compliment.text = "Press the button to receive a compliment."
+	
+	# default volume
+	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
 func _on_please():
 	var selection: int = random.randi_range(1, count)
@@ -63,3 +69,11 @@ func cancel_config() -> void:
 	$UIButtons.play()
 	config.visible = false
 	fade.visible = false
+
+# Setting Functions
+func _volume_changed(value: float) -> void:
+	if value:
+		volume = $Control/Margin/CanvasLayer/ConfigPopup/volumeSlider.value
+		print(volume)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("TestBus"), volume)
+	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()
