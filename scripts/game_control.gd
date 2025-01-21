@@ -10,12 +10,19 @@ var popup: TextureRect
 var config: TextureRect
 var fade: ColorRect
 const database_script = preload("res://data/database_access.gd")
+const resolutions: Dictionary = {
+	"1280 x 720" : Vector2i(1280, 720),
+	"1920 x 1080" : Vector2i(1920, 1080),
+	"1152 x 648": Vector2i(1152, 648)
+}
 
 # Settings
 var volume: float
 var settingsChanged: bool
 var windowMode: int
 var newMode: int
+var resolution: int
+var newRes: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +42,8 @@ func _ready():
 	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	windowMode = 0
 	newMode = windowMode
+	resolution = 0
+	newRes = resolution
 	settingsChanged = false
 	
 func _on_please():
@@ -78,12 +87,16 @@ func exit_config() -> void:
 	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
 
 func cancel_config() -> void:
-	_on_resolution_item_selected(windowMode)
+	if newMode != windowMode:
+		_on_resolution_item_selected(windowMode)
+	if newRes != resolution:
+		_on_screen_size_item_selected(resolution)
 	exit_config()
 
 func apply_config() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
 	windowMode = newMode
+	resolution = newRes
 	exit_config()
 
 # Setting Functions
@@ -114,3 +127,12 @@ func _on_resolution_item_selected(index: int) -> void:
 			settingsChanged = true
 			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
 	newMode = index
+
+
+func _on_screen_size_item_selected(index: int) -> void:
+	DisplayServer.window_set_size(resolutions.values()[index])
+	get_window().move_to_center()
+	if !settingsChanged:
+			settingsChanged = true
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
+	newRes = index
