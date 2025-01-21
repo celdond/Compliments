@@ -13,6 +13,7 @@ const database_script = preload("res://data/database_access.gd")
 
 # Settings
 var volume: float
+var settingsChanged: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +31,7 @@ func _ready():
 	
 	# default volume
 	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	settingsChanged = false
 	
 func _on_please():
 	var selection: int = random.randi_range(1, count)
@@ -66,9 +68,15 @@ func on_slide_pressed() -> void:
 
 
 func cancel_config() -> void:
+	settingsChanged = false
 	$UIButtons.play()
 	config.visible = false
 	fade.visible = false
+	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
+
+func apply_config() -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
+	cancel_config()
 
 # Setting Functions
 func _volume_changed(value: float) -> void:
@@ -76,4 +84,7 @@ func _volume_changed(value: float) -> void:
 		volume = $Control/Margin/CanvasLayer/ConfigPopup/volumeSlider.value
 		print(volume)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("TestBus"), volume)
+		if !settingsChanged:
+			settingsChanged = true
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
 	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()

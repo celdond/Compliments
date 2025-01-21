@@ -285,6 +285,7 @@ theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "CANCEL"
 
 [node name="ConfigPopup" type="TextureRect" parent="Control/Margin/CanvasLayer"]
+visible = false
 z_index = 10
 anchors_preset = -1
 anchor_left = 0.299
@@ -334,6 +335,21 @@ stream = ExtResource("13_slgsy")
 bus = &"TestBus"
 playback_type = 1
 
+[node name="apply" type="Button" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+offset_left = 51.0
+offset_top = 245.0
+offset_right = 180.0
+offset_bottom = 300.0
+focus_mode = 0
+theme = ExtResource("11_fsqcu")
+theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_styles/hover = ExtResource("12_hmeup")
+theme_override_styles/pressed = ExtResource("12_hmeup")
+disabled = true
+text = "APPLY"
+
 [node name="UIButtons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ph8mg")
 
@@ -345,3 +361,5 @@ stream = ExtResource("13_ph8mg")
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/cancel" to="." method="cancel_config"]
 [connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/volumeSlider" to="." method="_volume_changed"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="cancel_config"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="apply_config"]
