@@ -121,26 +121,35 @@ anchor_top = 0.613
 anchor_right = 0.596
 anchor_bottom = 0.955
 offset_left = -0.40802
-offset_top = -0.22403
+offset_top = -0.22406
 offset_right = 0.407959
-offset_bottom = 0.159973
+offset_bottom = 0.159912
 
 [node name="Textbox" type="Panel" parent="Control/Margin/CanvasLayer/Background"]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 110.0
-offset_right = 1050.0
-offset_bottom = 387.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.17
+anchor_right = 0.911
+anchor_bottom = 0.597
+offset_left = -0.528
+offset_top = -0.160004
+offset_right = 0.527954
+offset_bottom = 0.144012
 theme_override_styles/panel = SubResource("StyleBoxFlat_riepv")
 
 [node name="Compliment" type="Label" parent="Control/Margin/CanvasLayer/Background/Textbox"]
 z_index = 5
 custom_minimum_size = Vector2(918, 253)
 layout_mode = 2
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 933.0
-offset_bottom = 265.0
+anchor_left = 0.5
+anchor_top = 0.56
+anchor_right = 0.5
+anchor_bottom = 0.56
+offset_left = -459.0
+offset_top = -143.12
+offset_right = 459.0
+offset_bottom = 109.88
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_mi2nj")
 horizontal_alignment = 1
@@ -244,11 +253,12 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="Control/Margin/CanvasLayer/ExitPopup"]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.11
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 38.0
+anchor_bottom = 0.329
+offset_top = -0.0600014
 offset_right = -0.999969
-offset_bottom = -232.0
+offset_bottom = 0.165993
 text = "Exit the Game?"
 label_settings = SubResource("LabelSettings_ewix1")
 horizontal_alignment = 1
@@ -256,11 +266,16 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="confirm" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 245.0
-offset_right = 180.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.711
+anchor_right = 0.39
+anchor_bottom = 0.867
+offset_left = 0.18
+offset_top = -1.00601
+offset_right = -0.179993
+offset_bottom = 0.0179749
 focus_mode = 0
 theme = ExtResource("11_fsqcu")
 theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
@@ -270,11 +285,16 @@ theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "EXIT"
 
 [node name="cancel" type="Button" parent="Control/Margin/CanvasLayer/ExitPopup"]
-layout_mode = 0
-offset_left = 282.0
-offset_top = 245.0
-offset_right = 411.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.61
+anchor_top = 0.708
+anchor_right = 0.89
+anchor_bottom = 0.867
+offset_left = 0.180023
+offset_top = 0.0319977
+offset_right = -0.179993
+offset_bottom = 0.0179749
 focus_mode = 0
 theme = ExtResource("11_fsqcu")
 theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
@@ -303,11 +323,16 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="cancel" type="Button" parent="Control/Margin/CanvasLayer/ConfigPopup"]
-layout_mode = 0
-offset_left = 282.0
-offset_top = 245.0
-offset_right = 411.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.61
+anchor_top = 0.711
+anchor_right = 0.89
+anchor_bottom = 0.867
+offset_left = 0.180023
+offset_top = -1.00601
+offset_right = -0.179993
+offset_bottom = 0.0179749
 focus_mode = 0
 theme = ExtResource("11_fsqcu")
 theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
@@ -324,9 +349,9 @@ anchor_top = 0.329
 anchor_right = 0.998
 anchor_bottom = 0.376
 offset_left = 51.0
-offset_top = 0.165993
+offset_top = 91.166
 offset_right = -50.076
-offset_bottom = -0.0960083
+offset_bottom = 90.904
 min_value = -80.0
 max_value = 0.0
 
@@ -336,10 +361,16 @@ bus = &"TestBus"
 playback_type = 1
 
 [node name="apply" type="Button" parent="Control/Margin/CanvasLayer/ConfigPopup"]
-offset_left = 51.0
-offset_top = 245.0
-offset_right = 180.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.708
+anchor_right = 0.39
+anchor_bottom = 0.867
+offset_left = 0.18
+offset_top = 0.0319977
+offset_right = -0.179993
+offset_bottom = 0.0179749
 focus_mode = 0
 theme = ExtResource("11_fsqcu")
 theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
@@ -349,6 +380,25 @@ theme_override_styles/hover = ExtResource("12_hmeup")
 theme_override_styles/pressed = ExtResource("12_hmeup")
 disabled = true
 text = "APPLY"
+
+[node name="resolution" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.535
+anchor_top = 0.183
+anchor_right = 0.89
+anchor_bottom = 0.294
+offset_left = 0.0290833
+offset_top = -0.129974
+offset_right = -0.247772
+offset_bottom = 0.196304
+selected = 0
+item_count = 3
+popup/item_0/text = "Full-Screen"
+popup/item_1/text = "Window"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Window"
+popup/item_2/id = 2
 
 [node name="UIButtons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ph8mg")
@@ -361,5 +411,6 @@ stream = ExtResource("13_ph8mg")
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/cancel" to="." method="cancel_config"]
 [connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/volumeSlider" to="." method="_volume_changed"]
-[connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="cancel_config"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="apply_config"]
+[connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="cancel_config"]
+[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/resolution" to="." method="_on_resolution_item_selected"]

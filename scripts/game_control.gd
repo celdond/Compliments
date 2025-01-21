@@ -14,6 +14,8 @@ const database_script = preload("res://data/database_access.gd")
 # Settings
 var volume: float
 var settingsChanged: bool
+var windowMode: int
+var newMode: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +33,8 @@ func _ready():
 	
 	# default volume
 	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	windowMode = 0
+	newMode = windowMode
 	settingsChanged = false
 	
 func _on_please():
@@ -66,17 +70,21 @@ func on_slide_pressed() -> void:
 		slideButton.flip_h = true
 		slideState = false
 
-
-func cancel_config() -> void:
+func exit_config() -> void:
 	settingsChanged = false
 	$UIButtons.play()
 	config.visible = false
 	fade.visible = false
 	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
 
+func cancel_config() -> void:
+	_on_resolution_item_selected(windowMode)
+	exit_config()
+
 func apply_config() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
-	cancel_config()
+	windowMode = newMode
+	exit_config()
 
 # Setting Functions
 func _volume_changed(value: float) -> void:
@@ -88,3 +96,21 @@ func _volume_changed(value: float) -> void:
 			settingsChanged = true
 			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
 	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()
+
+
+func _on_resolution_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	if !settingsChanged:
+			settingsChanged = true
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
+	newMode = index
