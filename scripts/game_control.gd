@@ -103,7 +103,6 @@ func apply_config() -> void:
 func _volume_changed(value: float) -> void:
 	if value:
 		volume = $Control/Margin/CanvasLayer/ConfigPopup/volumeSlider.value
-		print(volume)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("TestBus"), volume)
 		if !settingsChanged:
 			settingsChanged = true
@@ -123,11 +122,12 @@ func _on_resolution_item_selected(index: int) -> void:
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	_on_screen_size_item_selected(newRes)
+	get_window().move_to_center()
 	if !settingsChanged:
 			settingsChanged = true
 			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
 	newMode = index
-
 
 func _on_screen_size_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(resolutions.values()[index])
