@@ -7,7 +7,7 @@ const util = preload("res://scripts/util.gd")
 func _ready() -> void:
 	if err != OK:
 		config.set_value("Display", "Mode", 1)
-		config.set_value("Display", "Resolution", "1280 x 720")
+		config.set_value("Display", "Resolution", 0)
 		config.save("user://settings.cfg")
 		return
 	else:

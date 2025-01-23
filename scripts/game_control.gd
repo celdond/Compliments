@@ -4,17 +4,14 @@ var slide: AnimationPlayer
 var slideButton: TextureButton
 var slideState: bool
 var database: Object
+var util: Object
 var count: int
 var random: RandomNumberGenerator
 var popup: TextureRect
 var config: TextureRect
 var fade: ColorRect
 const database_script = preload("res://scripts/database_access.gd")
-const resolutions: Dictionary = {
-	"1280 x 720" : Vector2i(1280, 720),
-	"1920 x 1080" : Vector2i(1920, 1080),
-	"1152 x 648": Vector2i(1152, 648)
-}
+const util_script = preload("res://scripts/util.gd")
 
 # Settings
 var volume: float
@@ -28,6 +25,7 @@ var newRes: int
 func _ready():
 	random = RandomNumberGenerator.new()
 	database = database_script.new()
+	util = util_script.new()
 	count = database.get_compliment_count()
 	compliment = get_node("./Control/Margin/CanvasLayer/Background/Textbox/Compliment")
 	slide = get_node("./Control/Margin/CanvasLayer/Slide/AnimationPlayer")
@@ -85,6 +83,7 @@ func exit_config() -> void:
 	config.visible = false
 	fade.visible = false
 	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
+	return
 
 func cancel_config() -> void:
 	if newMode != windowMode:
@@ -92,12 +91,14 @@ func cancel_config() -> void:
 	if newRes != resolution:
 		_on_screen_size_item_selected(resolution)
 	exit_config()
+	return
 
 func apply_config() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
 	windowMode = newMode
 	resolution = newRes
 	exit_config()
+	return
 
 # Setting Functions
 func _volume_changed(value: float) -> void:
@@ -109,19 +110,8 @@ func _volume_changed(value: float) -> void:
 			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
 	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()
 
-
 func _on_resolution_item_selected(index: int) -> void:
-	match index:
-		0:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-			
-		2:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	util.resolution_change(index)
 	_on_screen_size_item_selected(newRes)
 	get_window().move_to_center()
 	if !settingsChanged:
@@ -130,7 +120,7 @@ func _on_resolution_item_selected(index: int) -> void:
 	newMode = index
 
 func _on_screen_size_item_selected(index: int) -> void:
-	DisplayServer.window_set_size(resolutions.values()[index])
+	util.screen_size_change(index)
 	get_window().move_to_center()
 	if !settingsChanged:
 			settingsChanged = true
