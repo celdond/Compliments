@@ -9,7 +9,7 @@ var random: RandomNumberGenerator
 var popup: TextureRect
 var config: TextureRect
 var fade: ColorRect
-const database_script = preload("res://data/database_access.gd")
+const database_script = preload("res://scripts/database_access.gd")
 const resolutions: Dictionary = {
 	"1280 x 720" : Vector2i(1280, 720),
 	"1920 x 1080" : Vector2i(1920, 1080),
