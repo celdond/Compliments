@@ -8,10 +8,12 @@ var util: Object
 var count: int
 var random: RandomNumberGenerator
 var popup: TextureRect
-var config: TextureRect
+var configPopup: TextureRect
 var fade: ColorRect
 const database_script = preload("res://scripts/database_access.gd")
 const util_script = preload("res://scripts/util.gd")
+var config = ConfigFile.new()
+var err = config.load("user://settings.cfg")
 
 # Settings
 var volume: float
@@ -32,15 +34,15 @@ func _ready():
 	slideButton = get_node("./Control/Margin/CanvasLayer/Slide/SlideButton")
 	slideState = false
 	popup = get_node("./Control/Margin/CanvasLayer/ExitPopup")
-	config = get_node("./Control/Margin/CanvasLayer/ConfigPopup")
+	configPopup = get_node("./Control/Margin/CanvasLayer/ConfigPopup")
 	fade = get_node("./Control/Margin/CanvasLayer/FadeLayer")
 	compliment.text = "Press the button to receive a compliment."
-	
+
 	# default volume
 	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	windowMode = 0
+	windowMode = config.get_value("Display", "Mode")
 	newMode = windowMode
-	resolution = 0
+	resolution = config.get_value("Display", "Resolution")
 	newRes = resolution
 	settingsChanged = false
 	
@@ -65,7 +67,7 @@ func on_exit() -> void:
 func nav_configuration() -> void:
 	$UIButtons.play()
 	fade.visible = true
-	config.visible = true
+	configPopup.visible = true
 
 func on_slide_pressed() -> void:
 	if slideState == false:
@@ -80,7 +82,7 @@ func on_slide_pressed() -> void:
 func exit_config() -> void:
 	settingsChanged = false
 	$UIButtons.play()
-	config.visible = false
+	configPopup.visible = false
 	fade.visible = false
 	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
 	return
@@ -111,7 +113,7 @@ func _volume_changed(value: float) -> void:
 	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()
 
 func _on_resolution_item_selected(index: int) -> void:
-	util.resolution_change(index)
+	util.mode_change(index)
 	_on_screen_size_item_selected(newRes)
 	get_window().move_to_center()
 	if !settingsChanged:

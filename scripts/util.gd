@@ -5,18 +5,10 @@ const resolutions: Dictionary = {
 	"1152 x 648": Vector2i(1152, 648)
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func screen_size_change(index: int) -> void:
 	DisplayServer.window_set_size(resolutions.values()[index])
 	
-func resolution_change(index: int) -> void:
+func mode_change(index: int) -> void:
 	match index:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
