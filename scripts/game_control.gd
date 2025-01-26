@@ -97,8 +97,16 @@ func cancel_config() -> void:
 
 func apply_config() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
-	windowMode = newMode
-	resolution = newRes
+	config.set_value("Audio", "Volume", volume)
+	if newMode != windowMode:
+		windowMode = newMode
+		config.set_value("Display", "Mode", newMode)
+	
+	if newRes != resolution:
+		config.set_value("Display", "Resolution", 0)
+		resolution = newRes
+	if settingsChanged:
+		config.save("user://settings.cfg")
 	exit_config()
 	return
 
