@@ -17,7 +17,7 @@ func _ready() -> void:
 		var displayMode = config.get_value("Display", "Mode")
 		var resolution = config.get_value("Display", "Resolution")
 		var volume = config.get_value("Audio", "Volume")
-		print(displayMode)
+		print(resolution)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
 		util.screen_size_change(resolution)
 		util.mode_change(displayMode)

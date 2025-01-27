@@ -46,6 +46,11 @@ func _ready():
 	newRes = resolution
 	settingsChanged = false
 	
+	$Control/Margin/CanvasLayer/ConfigPopup/volumeSlider.set_value_no_signal(volume)
+	$Control/Margin/CanvasLayer/ConfigPopup/resolution.selected =  windowMode
+	$Control/Margin/CanvasLayer/ConfigPopup/screen_size.selected = resolution
+	print(resolution)
+	
 func _on_please():
 	var selection: int = random.randi_range(1, count)
 	var c: String = database.get_compliment(selection)
@@ -103,7 +108,7 @@ func apply_config() -> void:
 		config.set_value("Display", "Mode", newMode)
 	
 	if newRes != resolution:
-		config.set_value("Display", "Resolution", 0)
+		config.set_value("Display", "Resolution", newRes)
 		resolution = newRes
 	if settingsChanged:
 		config.save("user://settings.cfg")
