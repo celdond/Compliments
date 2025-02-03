@@ -89,7 +89,7 @@ func exit_config() -> void:
 	$UIButtons.play()
 	configPopup.visible = false
 	fade.visible = false
-	$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = true
+	$Control/Margin/CanvasLayer/ConfigPopup/apply.visible = false
 	return
 
 func cancel_config() -> void:
@@ -122,7 +122,7 @@ func _volume_changed(value: float) -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("TestBus"), volume)
 		if !settingsChanged:
 			settingsChanged = true
-			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.visible = true
 	$Control/Margin/CanvasLayer/ConfigPopup/TestSound.play()
 
 func _on_resolution_item_selected(index: int) -> void:
@@ -131,7 +131,7 @@ func _on_resolution_item_selected(index: int) -> void:
 	get_window().move_to_center()
 	if !settingsChanged:
 			settingsChanged = true
-			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.visible = true
 	newMode = index
 
 func _on_screen_size_item_selected(index: int) -> void:
@@ -139,5 +139,5 @@ func _on_screen_size_item_selected(index: int) -> void:
 	get_window().move_to_center()
 	if !settingsChanged:
 			settingsChanged = true
-			$Control/Margin/CanvasLayer/ConfigPopup/apply.disabled = false
+			$Control/Margin/CanvasLayer/ConfigPopup/apply.visible = true
 	newRes = index
