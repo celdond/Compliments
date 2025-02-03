@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkhsehmct2sc6"]
+[gd_scene load_steps=25 format=3 uid="uid://bkhsehmct2sc6"]
 
 [ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
@@ -79,6 +79,16 @@ outline_size = 2
 outline_color = Color(0.976471, 0.960784, 0.921569, 1)
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylr02"]
+bg_color = Color(0.976471, 0.960784, 0.921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntn48"]
+bg_color = Color(0.976471, 0.960784, 0.921569, 1)
+
+[sub_resource type="Theme" id="Theme_83yfm"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ylr02")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ntn48")
 
 [node name="Game2D" type="Node2D"]
 script = ExtResource("1_7drca")
@@ -309,13 +319,13 @@ visible = false
 z_index = 10
 anchors_preset = -1
 anchor_left = 0.299
-anchor_top = 0.233
+anchor_top = 0.106
 anchor_right = 0.701
-anchor_bottom = 0.767
-offset_left = 0.551971
-offset_top = 0.0159912
-offset_right = -0.552063
-offset_bottom = -0.0160217
+anchor_bottom = 0.9
+offset_left = 0.551941
+offset_top = 91.456
+offset_right = -0.552124
+offset_bottom = -95.776
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_s0o5f")
@@ -345,13 +355,15 @@ text = "CANCEL"
 [node name="volumeSlider" type="HSlider" parent="Control/Margin/CanvasLayer/ConfigPopup"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.329
-anchor_right = 0.998
-anchor_bottom = 0.376
-offset_left = 51.0
-offset_top = 91.166
-offset_right = -50.076
-offset_bottom = 90.904
+anchor_left = 0.465
+anchor_top = 0.588
+anchor_right = 0.902
+anchor_bottom = 0.635
+offset_left = -0.0289917
+offset_top = 0.168579
+offset_right = -0.409271
+offset_bottom = 0.0995026
+theme = SubResource("Theme_83yfm")
 min_value = -80.0
 max_value = 0.0
 
@@ -386,13 +398,20 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.465
 anchor_top = 0.183
-anchor_right = 0.897
-anchor_bottom = 0.292
-offset_left = -0.0289917
-offset_top = -1.12997
-offset_right = 0.158051
-offset_bottom = -0.0348129
+anchor_right = 0.902
+anchor_bottom = 0.286
+offset_left = 0.242981
+offset_top = -3.35398
+offset_right = -2.1373
+offset_bottom = 0.0478668
+focus_mode = 0
 theme = ExtResource("11_fsqcu")
+theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_styles/hover = ExtResource("12_hmeup")
+theme_override_styles/pressed = ExtResource("12_hmeup")
+alignment = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "Full-Screen"
@@ -404,15 +423,21 @@ popup/item_2/id = 2
 [node name="screen_size" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.536
+anchor_left = 0.465
 anchor_top = 0.393
-anchor_right = 0.89
+anchor_right = 0.898
 anchor_bottom = 0.499
-offset_left = -0.212372
+offset_left = 0.242981
 offset_top = -0.0880585
-offset_right = 0.0242004
+offset_right = -0.0834656
 offset_bottom = 0.160446
+focus_mode = 0
 theme = ExtResource("11_fsqcu")
+theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/icon_normal_color = Color(0.917647, 0.329412, 0.333333, 1)
+alignment = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "1280 x 720"
