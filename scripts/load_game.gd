@@ -9,7 +9,7 @@ func _ready() -> void:
 	util = util_script.new()
 	if err != OK:
 		config.set_value("Display", "Mode", 1)
-		config.set_value("Display", "Resolution", 0)
+		config.set_value("Display", "Resolution", 1)
 		config.set_value("Audio", "Volume", 0.0)
 		config.save("user://settings.cfg")
 		return

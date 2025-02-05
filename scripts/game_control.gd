@@ -95,8 +95,10 @@ func exit_config() -> void:
 func cancel_config() -> void:
 	if newMode != windowMode:
 		_on_resolution_item_selected(windowMode)
+		$Control/Margin/CanvasLayer/ConfigPopup/resolution.selected =  windowMode
 	if newRes != resolution:
 		_on_screen_size_item_selected(resolution)
+		$Control/Margin/CanvasLayer/ConfigPopup/screen_size.selected = resolution
 	exit_config()
 	return
 
