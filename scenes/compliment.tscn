@@ -319,18 +319,118 @@ visible = false
 z_index = 10
 anchors_preset = -1
 anchor_left = 0.299
-anchor_top = 0.106
+anchor_top = 0.233
 anchor_right = 0.701
-anchor_bottom = 0.9
-offset_left = 0.551941
-offset_top = 91.456
+anchor_bottom = 0.767
+offset_left = 0.55191
+offset_top = 0.0159912
 offset_right = -0.552124
-offset_bottom = -95.776
+offset_bottom = -0.0159912
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_s0o5f")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="DisplayBox" type="HBoxContainer" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087
+anchor_top = 0.224
+anchor_right = 0.901
+anchor_bottom = 0.336
+offset_left = 0.0573883
+offset_top = 0.107643
+offset_right = 0.104248
+offset_bottom = 0.049469
+
+[node name="Label" type="Label" parent="Control/Margin/CanvasLayer/ConfigPopup/DisplayBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_vucb8")
+theme_override_font_sizes/font_size = 36
+text = "Display:"
+
+[node name="display_mode" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup/DisplayBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("11_fsqcu")
+theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_styles/hover = ExtResource("12_hmeup")
+theme_override_styles/pressed = ExtResource("12_hmeup")
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Full-Screen"
+popup/item_1/text = "Window"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Window"
+popup/item_2/id = 2
+
+[node name="ResolutionBox" type="HBoxContainer" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087
+anchor_top = 0.386
+anchor_right = 0.901
+anchor_bottom = 0.497
+offset_left = 0.0573883
+offset_top = -0.172928
+offset_right = 0.104248
+offset_bottom = 0.153336
+
+[node name="Label" type="Label" parent="Control/Margin/CanvasLayer/ConfigPopup/ResolutionBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_vucb8")
+theme_override_font_sizes/font_size = 36
+text = "Resolution:"
+
+[node name="screen_size" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup/ResolutionBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("11_fsqcu")
+theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
+theme_override_colors/icon_normal_color = Color(0.917647, 0.329412, 0.333333, 1)
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "1280 x 720"
+popup/item_1/text = "1920 x 1080 "
+popup/item_1/id = 1
+popup/item_2/text = "1152 x 648"
+popup/item_2/id = 2
+
+[node name="VolumeBox" type="HBoxContainer" parent="Control/Margin/CanvasLayer/ConfigPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.088
+anchor_top = 0.539
+anchor_right = 0.901
+anchor_bottom = 0.643
+offset_left = -0.456066
+offset_top = 0.0065155
+offset_right = 0.104248
+offset_bottom = 0.023941
+
+[node name="Label" type="Label" parent="Control/Margin/CanvasLayer/ConfigPopup/VolumeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_vucb8")
+theme_override_font_sizes/font_size = 36
+text = "Volume:"
+
+[node name="volumeSlider" type="HSlider" parent="Control/Margin/CanvasLayer/ConfigPopup/VolumeBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_83yfm")
+min_value = -80.0
+max_value = 0.0
 
 [node name="cancel" type="Button" parent="Control/Margin/CanvasLayer/ConfigPopup"]
 layout_mode = 1
@@ -351,21 +451,6 @@ theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
 theme_override_styles/hover = ExtResource("12_hmeup")
 theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "CANCEL"
-
-[node name="volumeSlider" type="HSlider" parent="Control/Margin/CanvasLayer/ConfigPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.465
-anchor_top = 0.588
-anchor_right = 0.902
-anchor_bottom = 0.635
-offset_left = -0.0289917
-offset_top = 0.168579
-offset_right = -0.409271
-offset_bottom = 0.0995026
-theme = SubResource("Theme_83yfm")
-min_value = -80.0
-max_value = 0.0
 
 [node name="TestSound" type="AudioStreamPlayer" parent="Control/Margin/CanvasLayer/ConfigPopup"]
 stream = ExtResource("13_slgsy")
@@ -393,59 +478,6 @@ theme_override_styles/hover = ExtResource("12_hmeup")
 theme_override_styles/pressed = ExtResource("12_hmeup")
 text = "APPLY"
 
-[node name="resolution" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.465
-anchor_top = 0.183
-anchor_right = 0.902
-anchor_bottom = 0.286
-offset_left = 0.242981
-offset_top = -3.35398
-offset_right = -2.1373
-offset_bottom = 0.0478668
-focus_mode = 0
-theme = ExtResource("11_fsqcu")
-theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
-theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
-theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
-theme_override_styles/hover = ExtResource("12_hmeup")
-theme_override_styles/pressed = ExtResource("12_hmeup")
-alignment = 1
-selected = 0
-item_count = 3
-popup/item_0/text = "Full-Screen"
-popup/item_1/text = "Window"
-popup/item_1/id = 1
-popup/item_2/text = "Borderless Window"
-popup/item_2/id = 2
-
-[node name="screen_size" type="OptionButton" parent="Control/Margin/CanvasLayer/ConfigPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.465
-anchor_top = 0.393
-anchor_right = 0.898
-anchor_bottom = 0.499
-offset_left = 0.242981
-offset_top = -0.0880585
-offset_right = -0.0834656
-offset_bottom = 0.160446
-focus_mode = 0
-theme = ExtResource("11_fsqcu")
-theme_override_colors/font_hover_color = Color(0.976471, 0.960784, 0.921569, 1)
-theme_override_colors/font_focus_color = Color(0.917647, 0.329412, 0.333333, 1)
-theme_override_colors/font_color = Color(0.917647, 0.329412, 0.333333, 1)
-theme_override_colors/icon_normal_color = Color(0.917647, 0.329412, 0.333333, 1)
-alignment = 1
-selected = 0
-item_count = 3
-popup/item_0/text = "1280 x 720"
-popup/item_1/text = "1920 x 1080 "
-popup/item_1/id = 1
-popup/item_2/text = "1152 x 648"
-popup/item_2/id = 2
-
 [node name="UIButtons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ph8mg")
 
@@ -455,8 +487,8 @@ stream = ExtResource("13_ph8mg")
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/SlideButton" to="." method="on_slide_pressed"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/confirm" to="." method="on_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]
+[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/DisplayBox/display_mode" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/ResolutionBox/screen_size" to="." method="_on_screen_size_item_selected"]
+[connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/VolumeBox/volumeSlider" to="." method="_volume_changed"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/cancel" to="." method="cancel_config"]
-[connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/volumeSlider" to="." method="_volume_changed"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/apply" to="." method="apply_config"]
-[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/screen_size" to="." method="_on_screen_size_item_selected"]
