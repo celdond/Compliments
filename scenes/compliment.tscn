@@ -487,7 +487,7 @@ stream = ExtResource("13_ph8mg")
 [connection signal="pressed" from="Control/Margin/CanvasLayer/Slide/SlideButton" to="." method="on_slide_pressed"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/confirm" to="." method="on_exit"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ExitPopup/cancel" to="." method="cancel_exit"]
-[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/DisplayBox/display_mode" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/DisplayBox/display_mode" to="." method="_on_display_item_selected"]
 [connection signal="item_selected" from="Control/Margin/CanvasLayer/ConfigPopup/ResolutionBox/screen_size" to="." method="_on_screen_size_item_selected"]
 [connection signal="drag_ended" from="Control/Margin/CanvasLayer/ConfigPopup/VolumeBox/volumeSlider" to="." method="_volume_changed"]
 [connection signal="pressed" from="Control/Margin/CanvasLayer/ConfigPopup/cancel" to="." method="cancel_config"]
