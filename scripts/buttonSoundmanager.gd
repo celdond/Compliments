@@ -1,7 +1,6 @@
 extends TextureButton
 var onClick: AudioStreamPlayer
 
-
 func _on_button_down() -> void:
 	$ClickDown.play()
 	return
