@@ -157,7 +157,7 @@ func apply_config() -> void:
 
 # Set the Test Audiobus Level for User Testing
 func _volume_changed(value: float) -> void:
-	volume = $Control/Margin/CanvasLayer/ConfigPopup/volumeSlider.value
+	volume = $Control/Margin/CanvasLayer/ConfigPopup/VolumeBox/volumeSlider.value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("TestBus"), volume)
 	if !settingsChanged:
 		settingsChanged = true
