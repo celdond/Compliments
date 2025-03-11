@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcouscsttwf54"]
 
-[ext_resource type="Script" path="res://scripts/load_game.gd" id="1_misdy"]
-[ext_resource type="Script" path="res://scripts/start.gd" id="1_rxmok"]
+[ext_resource type="Script" uid="uid://diewnrbker2a" path="res://scripts/load_game.gd" id="1_misdy"]
+[ext_resource type="Script" uid="uid://jidq75s16js7" path="res://scripts/start.gd" id="1_rxmok"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="1_t7o7a"]
 [ext_resource type="AudioStream" uid="uid://bbpdxexq1paaf" path="res://data/sounds/onClick.wav" id="3_x4yan"]
 

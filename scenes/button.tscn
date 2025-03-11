@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csow68cn6clyq" path="res://data/content/assets/button/pleaseButton.png" id="1_ytmpx"]
 [ext_resource type="Texture2D" uid="uid://cbm6u6udxdk8l" path="res://data/content/assets/button/pleaseButtonPressed.png" id="2_vfkjy"]
-[ext_resource type="Script" path="res://scripts/buttonSoundmanager.gd" id="3_a0ins"]
+[ext_resource type="Script" uid="uid://2bf302d7bx4a" path="res://scripts/buttonSoundmanager.gd" id="3_a0ins"]
 [ext_resource type="AudioStream" uid="uid://bbpdxexq1paaf" path="res://data/sounds/onClick.wav" id="3_qxxsf"]
 
 [node name="TextureButton" type="TextureButton"]

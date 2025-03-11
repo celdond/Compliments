@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://bkhsehmct2sc6"]
 
-[ext_resource type="Script" path="res://scripts/game_control.gd" id="1_7drca"]
+[ext_resource type="Script" uid="uid://1odoqh2s6mvy" path="res://scripts/game_control.gd" id="1_7drca"]
 [ext_resource type="PackedScene" uid="uid://cf3al74whb4yj" path="res://scenes/button.tscn" id="2_spen2"]
 [ext_resource type="Texture2D" uid="uid://puhl53tegqcj" path="res://data/content/assets/options_button/options.png" id="3_etel6"]
 [ext_resource type="Texture2D" uid="uid://dqj8i6k6gxeen" path="res://data/content/assets/options_button/optionsClick.png" id="4_xg8cq"]
@@ -61,8 +61,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjmfx"]
 _data = {
-"RESET": SubResource("Animation_nbnc4"),
-"slide": SubResource("Animation_8u6gq")
+&"RESET": SubResource("Animation_nbnc4"),
+&"slide": SubResource("Animation_8u6gq")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y0t3"]
