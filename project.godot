@@ -13,7 +13,7 @@ config_version=5
 config/name="Compliments Temp"
 run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ch8lwfojc222s"
 
 [display]
 
