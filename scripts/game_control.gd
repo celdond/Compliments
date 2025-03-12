@@ -4,6 +4,7 @@ extends Node2D
 var compliment: Label
 var count: int
 var random: RandomNumberGenerator
+var last_selection: int
 
 # Component Handling Variables
 var slide: AnimationPlayer
@@ -51,6 +52,7 @@ func _ready():
 	# Set-up Initial Compliment Handling
 	count = database.get_compliment_count()
 	compliment.text = "Press the button to receive a compliment."
+	last_selection = -1
 
 	# Set Settings Values
 	volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
@@ -70,9 +72,13 @@ func _ready():
 func _on_please():
 	
 	# Select a random id from 1 to the size of the compliment table
+	# If the selection is the same as the last, set it to the next instead
 	var selection: int = random.randi_range(1, count)
+	if selection == last_selection:
+		selection = (selection % count) + 1
 	
 	var c: String = database.get_compliment(selection)
+	last_selection = selection
 	compliment.text = c
 
 # Show Exit Pop-up on Exit Button Click
