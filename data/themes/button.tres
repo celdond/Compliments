@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bnogjgji83w3b"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bnogjgji83w3b"]
 
 [ext_resource type="StyleBox" uid="uid://dgp7jqmasldg" path="res://data/themes/buttonHover.tres" id="1_4a0q2"]
 [ext_resource type="FontFile" uid="uid://cq8bksf3ifte2" path="res://data/content/assets/fonts/Roboto-Regular.ttf" id="1_76k4d"]
@@ -10,8 +10,19 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tembx"]
+bg_color = Color(0.976471, 0.960784, 0.921569, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hmt6"]
 bg_color = Color(0.917647, 0.329412, 0.333333, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.976471, 0.960784, 0.921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnml8"]
+bg_color = Color(0.976471, 0.960784, 0.921569, 1)
 
 [resource]
 default_font = ExtResource("1_76k4d")
@@ -22,4 +33,8 @@ Button/styles/hover = ExtResource("1_4a0q2")
 Button/styles/normal = SubResource("StyleBoxFlat_x8bes")
 Button/styles/pressed = ExtResource("1_4a0q2")
 OptionButton/colors/icon_normal_color = Color(0.917647, 0.329412, 0.333333, 1)
+PopupMenu/colors/font_color = Color(0.976471, 0.960784, 0.921569, 1)
+PopupMenu/colors/font_hover_color = Color(0.917647, 0.329412, 0.333333, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_tembx")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_1hmt6")
+PopupMenu/styles/separator = SubResource("StyleBoxFlat_wnml8")
