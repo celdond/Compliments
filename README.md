@@ -7,7 +7,7 @@ A simple Godot application to receive random compliments by pressing a button.
 ### Binary
 You can download the binary of the application on itch.io:
 
-[https://itch.io/](https://celdond.itch.io/compliments-please)
+https://celdond.itch.io/compliments-please
 
 ### Project
 The application was built in Godot 4.4.1 using GDScript.
