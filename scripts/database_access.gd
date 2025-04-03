@@ -11,6 +11,7 @@ func get_compliment_count()->int:
 
 	db.path = db_name
 	db.verbosity_level = verbosity_level
+	db.read_only = true
 	db.open_db()
 	
 	var count = db.select_rows("standard", "", ["COUNT(*)"])[0]["COUNT(*)"]
